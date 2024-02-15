@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38074008, b: 0.35872707, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -302,7 +302,6 @@ GameObject:
   - component: {fileID: 1921026028}
   - component: {fileID: 1921026027}
   - component: {fileID: 1921026026}
-  - component: {fileID: 1921026029}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -376,22 +375,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1921026029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1921026025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b17db258ec42f647a1ff817905e9bc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camSmoothing: 1
-  minPos: {x: 0, y: 0}
-  maxPos: {x: 0, y: 0}
-  target: {fileID: 1929570577}
 --- !u!1 &1929570574
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,12 +428,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1929570574}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b3056d420e997f438bb0b8c1e8fd52d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c9d6b0bd6c95b04db8c57f7d0badbd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   collider2d: {fileID: 1929570575}
+  skin: {fileID: 745622726}
   walkSpeed: 5
-  runSpeed: 0
+  runSpeed: 10
+  camSmoothing: 5
   cam: {fileID: 1921026027}
 --- !u!4 &1929570577
 Transform:
