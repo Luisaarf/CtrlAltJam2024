@@ -1,6 +1,5 @@
+
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -73,16 +72,32 @@ public class PlayerMoviment : MonoBehaviour
 
     public void Dash(){
         if(Input.GetKey(KeyCode.E)){
-            if(time <= 100 )time += timeMultiplier * Time.deltaTime;
+            if(time <= 1 )time += timeMultiplier * Time.deltaTime;
         }
 
         dashLoadUI.value = time;
 
         if(Input.GetKeyUp(KeyCode.E)) {
-            rb.AddForce(transform.up * (dashForce * time));
+            StartCoroutine("DashAnimation");
             time = 0;
             dashLoadUI.value = 0;
         }
 
+    }
+
+    public IEnumerator DashAnimation(){
+        Vector3 startPos = transform.position;
+        Vector3 endPos = transform.position + transform.up * (dashForce*time);
+
+        float elapsedTime = 0;
+        float progress = 0;
+        while(progress <= 1){
+            transform.position = Vector2.Lerp(startPos, endPos, progress);
+            elapsedTime += Time.deltaTime;
+            progress = elapsedTime / 1f;
+            yield return null;
+        }
+
+        transform.position = endPos;
     }
 }
