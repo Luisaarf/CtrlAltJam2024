@@ -17,7 +17,13 @@ public class SpawnEnemies : MonoBehaviour
 
     void Spawn()
     {
+        UpdateCameraPosition();
         Instantiate(enemy, new Vector3(positionCamera.x + 5, positionCamera.y + 5, 1), Quaternion.identity);
+    }
+
+    void UpdateCameraPosition()
+    {
+        positionCamera = mainCamera.transform.position;
     }
 
     // Update is called once per frame
